@@ -13,8 +13,8 @@ public abstract class PurchasableTile extends Tile {
     protected int price;
     protected int toll;
 
-    public PurchasableTile(String name) {
-        super(name);
+    public PurchasableTile(int index, String name) {
+        super(index, name);
     }
 
     {

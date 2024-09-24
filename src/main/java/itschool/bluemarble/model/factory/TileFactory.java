@@ -1,5 +1,6 @@
 package itschool.bluemarble.model.factory;
 
+import itschool.bluemarble.dao.CityDao;
 import itschool.bluemarble.model.entity.goldenKey.GoldenKeyTile;
 import itschool.bluemarble.model.entity.tile.*;
 import itschool.bluemarble.model.entity.tile.abs.City;
@@ -10,10 +11,36 @@ import java.util.Arrays;
 public class TileFactory {
     private static ArrayList<Tile> TILES = new ArrayList<Tile>();
     private static GoldenKeyTile goldenKeyTile;
+    private static CityDao cityDao = new CityDao();
 
     static {
-        goldenKeyTile = GoldenKeyTile.getInstance();
+        //goldenKeyTile = GoldenKeyTile.getInstance();
 
+        // City 타일 추가
+
+
+
+
+        // City 외에도 소스 더 추가
+
+        TILES.addAll(Arrays.asList(
+                new Tile(0,"시작"),                      // index 0, Special
+                new GoldenKeyTile(2),                                // index 2
+                new GoldenKeyTile(7),                                // index 7
+                new Island(),                                 // index 10,  Special
+                new GoldenKeyTile(12),                                // index 12
+                new GoldenKeyTile(17),                                // index 17
+                new GiveDonation(),                           // index 20, Special
+                new GoldenKeyTile(22),                                // index 22
+                new SpaceTravel("우주여행"),                  // index 30
+                new GoldenKeyTile(35),                                // index 35
+                DonationParty.getInstance()                 // index 38,  Special
+        ));
+        TILES.addAll(cityDao.selectCities());
+        TILES.addAll(cityDao.selectFixedTollCities());
+        //TILES.addAll(cityDao.selectSpecialTollCities());
+        TILES.sort(((o1, o2) -> o1.getIndex() - o2.getIndex()));
+/*
         TILES.addAll(Arrays.asList(
                 new Tile("시작"),                      // index 0, Special
                 new City("타이베이"),                  // index 1
@@ -55,7 +82,7 @@ public class TileFactory {
                 new City("뉴욕"),                      // index 37
                 DonationParty.getInstance(),                  // index 38,  Special
                 new FixedTollCity("서울")             // index 39
-        ));
+        ));*/
     }
 
     public static ArrayList<Tile> getTiles() {

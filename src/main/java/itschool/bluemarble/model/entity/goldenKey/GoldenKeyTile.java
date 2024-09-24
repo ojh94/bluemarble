@@ -20,7 +20,7 @@ import java.util.*;
 
 public class GoldenKeyTile extends Tile {
     // 싱글톤 시작
-    private static GoldenKeyTile instance = null;
+    /*private static GoldenKeyTile instance = null;
 
     public static GoldenKeyTile getInstance() throws PlayerHasNoLandViolation {
         if(instance == null) {
@@ -28,10 +28,10 @@ public class GoldenKeyTile extends Tile {
             initializeGoldenKeys();
         }
         return instance;
-    }
+    }*/
 
-    private GoldenKeyTile() {
-        super("황금열쇠");
+    public GoldenKeyTile(int index) {
+        super(index,"황금열쇠");
     }
     // 싱글톤 끝
 

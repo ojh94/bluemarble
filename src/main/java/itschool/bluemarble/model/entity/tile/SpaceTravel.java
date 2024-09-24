@@ -7,7 +7,7 @@ import itschool.bluemarble.model.entity.tile.ifs.SpecialFunction;
 
 public class SpaceTravel extends SpecialTile {
     public SpaceTravel(String name) {
-        super(name, (player) -> {
+        super(30,name, (player) -> {
             System.out.println(player.getName() + "님이 우주여행을 시작합니다.");
         });
     }

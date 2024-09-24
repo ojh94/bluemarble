@@ -6,8 +6,8 @@ import lombok.Getter;
 
 @Getter
 public class SpecialVehicle extends FixedTollCity {
-    public SpecialVehicle(String name){
-        super(name);
+    public SpecialVehicle(int index,String name, int price, int toll){
+        super(index, name,price,toll);
     }
 
     void setOwner(Player player){

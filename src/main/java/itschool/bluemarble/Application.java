@@ -1,6 +1,7 @@
 package itschool.bluemarble;
 
 import itschool.bluemarble.exception.needcheck.GameOver;
+import itschool.bluemarble.model.factory.TileFactory;
 import itschool.bluemarble.progress.GameByConsole;
 import itschool.bluemarble.progress.Game;
 
@@ -9,6 +10,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+
         // 스캐너는 GameByConsole에서 만든 하나의 스캐너를 공유받음
         Scanner sc = new Scanner(System.in);
 
